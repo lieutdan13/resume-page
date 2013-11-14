@@ -62,5 +62,6 @@ class ba_resume_page_run_and_cleans {
 
 	}
 
+
 }
 new ba_resume_page_run_and_cleans;

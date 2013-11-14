@@ -8,12 +8,16 @@
 @import 'labels.less';
 @import 'badges.less';
 @import 'thumbnails.less';
+@import 'utilities.less';
 
 *,*:before,*:after{
     .box-sizing(border-box);
 }
 
-
+ul {
+    list-style: none;
+    padding:0;
+}
 .resume-page {
     min-height:900px; /* For IE7 */
     font-size: 14px;
@@ -22,7 +26,6 @@
 }
 
 .resume-wrap {
-    
     background:#CCC;
     height:100%;
     width:100%;
@@ -36,7 +39,7 @@
         vertical-align:middle;
         display:table-cell;
     }
-    
+
 }
 
 .resume-inner {
@@ -46,4 +49,53 @@
     position:relative;
     background: rgba(255, 255, 255, .92);
     .box-shadow (~"-1px -1px 1px rgba(0,0,0,0.10),1px 1px  0 rgba(0, 0, 0, 0.100),3px 3px  0 rgba(255, 255, 255, 1.0),4px 4px  0 rgba(0, 0, 0, 0.125),6px 6px  0 rgba(255, 255, 255, 1.0),7px 7px 0 rgba(0,0,0,0.150),9px 9px 0 rgba(255, 255, 255, 1.0),10px 10px 0 rgba(0,0,0, 0.10)");
+}
+
+// Github Stream
+.github-activity-item {
+    padding: 10px 0;
+    font-size:@font-size-small;
+
+    &:first-of-type {
+        padding-top: 0;
+    }
+    a {
+        white-space: nowrap;
+    }
+    .gravatar {
+        display: none;
+    }
+    img {
+        height: 20px;
+        margin-right: 3px;
+        width: 20px;
+    }
+    .time {
+        color: #999;
+    }
+    .commits {
+        ul,
+        ul li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            line-height: 20px;
+            padding-left: 10px;
+        }
+        ul li.more {
+            padding: 0;
+        }
+    }
+    .message,
+    .message blockquote {
+        display: inline;
+    }
+    .message blockquote {
+        border: 0;
+        font-style: normal;
+        margin: 0;
+        padding-left: 3px;
+    }
 }

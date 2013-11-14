@@ -9,13 +9,14 @@ do_action('ba_resume_page_before');
 			<div class="resume-container">
 				<div class="resume-inner">
 
+					<!-- start resume header -->
 					<header class="row resume-section-header">
 						<div class="col-sm-3">
 							<img src="http://placekitten.com/600/400" class="img-responsive">
 						</div>
 						<div class="col-sm-6">
-							<h1>Unicorn Rider</h1>
-							<h3>Crime Fighting Superstar</h3>
+							<h1 class="zmt">Unicorn Rider</h1>
+							<h3 class="zmt">Crime Fighting Superstar</h3>
 							<a href="#">email@info.com</a>
 							<a href="#">http://website.com</a>
 							<a class="muted" href="#">555-555-5555</a>
@@ -28,6 +29,7 @@ do_action('ba_resume_page_before');
 							</ul>
 						</div>
 					</header>
+					<!-- end resume header -->
 
 					<!-- start main -->
 					<main class="resume-section-main">
@@ -35,7 +37,7 @@ do_action('ba_resume_page_before');
 						<!-- start objective -->
 						<section class="row resume-objective">
 							<div class="col-sm-3">
-								<h3>Objective</h3>
+								<h4 class="zmt">Objective</h4>
 							</div>
 							<div class="col-sm-9">
 								<p>Seeking expanded opportunies within select organizations where I can utilize my expertise to implement profit oriented results.</p>
@@ -48,14 +50,14 @@ do_action('ba_resume_page_before');
 						<!-- start work experience wrap -->
 						<section class="row resume-work-experience">
 							<div class="col-sm-3">
-								<h3>Experience</h3>
+								<h4 class="zmt">Experience</h4>
 							</div>
 							<div class="col-sm-9">
 
 								<!-- company -->
 								<div class="row">
 									<div class="col-sm-9">
-										<h3>Senior Project Manager</h3>
+										<h4 class="zmt">Senior Project Manager</h4>
 										<h4><small>Web Design stuidios</small></h4>
 										<p>Did some shit here</p>
 									</div>
@@ -68,7 +70,7 @@ do_action('ba_resume_page_before');
 								<!-- company -->
 								<div class="row">
 									<div class="col-sm-9">
-										<h3>Senior Project Manager</h3>
+										<h4 class="zmt">Senior Project Manager</h4>
 										<h4><small>Web Design stuidios</small></h4>
 										<p>Did some shit here</p>
 									</div>
@@ -84,10 +86,27 @@ do_action('ba_resume_page_before');
 
 						<hr />
 
+						<!-- start github activity stream -->
+						<section class="row resume-github-stream">
+							<div class="col-sm-3">
+								<h4 class="zmt">Github Activity</h4>
+							</div>
+							<div class="col-sm-9">
+
+								<!-- company -->
+								<ul class="github-stream unstyled">
+								<?php echo ba_resume_page_github_feed( 'bearded-avenger', $excluded = array(), $count = 5, $include_css = true);?>
+							</ul>
+							</div>
+						</section>
+						<!-- end github activity stream -->
+
+						<hr />
+
 						<!-- start skillset wrap -->
 						<section class="row resume-skillset">
 							<div class="col-sm-3">
-								<h3>Skills</h3>
+								<h4 class="zmt">Skills</h4>
 							</div>
 							<div class="col-sm-9">
 
@@ -117,11 +136,29 @@ do_action('ba_resume_page_before');
 						<hr />
 
 						<!-- start education wrap -->
+						<section class="row resume-education">
+							<div class="col-sm-3">
+								<h4 class="zmt">Education</h4>
+							</div>
+							<div class="col-sm-9">
 
+								<!-- skillset 1 -->
+								<div class="row">
+									<div class="col-sm-12">
+										<h3 class="zmt">Harvard</h3>
+										<h4><small>Business Law</small> 4.0 GPA</h4>
+										<p>I was awesome</p>
+									</div>
+								</div>
+								<!-- end skillset -->
+
+							</div>
+						</section>
 						<!-- end education wrap -->
 
 					</main>
 					<!-- end main -->
+
 
 				</div>
 			</div>
