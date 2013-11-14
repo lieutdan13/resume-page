@@ -44,7 +44,7 @@ do_action('ba_resume_page_before'); // action
 							<a href="#" class="resume-bio-site">http://website.com</a>
 							<a class="muted resume-bio-phone" href="#">555-555-5555</a>
 						</div>
-						<div class="col-sm-2 resume-social-wrap">
+						<div class="col-sm-2 resume-social-wrap tar">
 							<ul class="resume-social unstyled">
 								<li><a href="#">tweeter</a></li>
 								<li><a href="#">tweeter</a></li>
@@ -88,7 +88,7 @@ do_action('ba_resume_page_before'); // action
 												<h4 class="zmt"><small><?php echo $company['rp_work_company'];?></small></h4>
 												<p><?php echo $company['rp_work_desc'];?></p>
 											</div>
-											<div class="col-sm-3">
+											<div class="col-sm-3 tar">
 												<p class="label label-info"><?php echo $company['rp_work_dates'];?></p>
 											</div>
 										</div>
