@@ -2,6 +2,22 @@
 
 wp_head();
 
+// setup variables - if you're overriding in a child template be sure to keep these here! only chnage the markup below and use these to fill in dynamic info
+//$avatar 		= ;
+$hide_experience 	= get_post_meta(get_the_ID(),'rp_disable_experience', true) ? get_post_meta(get_the_ID(),'rp_disable_experience', true) : false;
+$hide_github 		= get_post_meta(get_the_ID(),'rp_disable_github', true) ? get_post_meta(get_the_ID(),'rp_disable_github', true) : false;
+$hide_skills 		= get_post_meta(get_the_ID(),'rp_disable_skills', true) ? get_post_meta(get_the_ID(),'rp_disable_skills', true) : false;
+$hide_education 	= get_post_meta(get_the_ID(),'rp_disable_education', true) ? get_post_meta(get_the_ID(),'rp_disable_education', true) : false;
+$hide_portfolio 	= get_post_meta(get_the_ID(),'rp_disable_portfolio', true) ? get_post_meta(get_the_ID(),'rp_disable_portfolio', true) : false;
+
+$objective_title = get_post_meta(get_the_ID(),'rp_objective_title', true) ? get_post_meta(get_the_ID(),'rp_objective_title', true) : __('Objective','resume-page');
+$objective_content = get_post_meta(get_the_ID(),'rp_objective_content', true) ? get_post_meta(get_the_ID(),'rp_objective_content', true) : __('What is your objective?','resume-page');
+
+$experience_title = get_post_meta(get_the_ID(),'rp_experience_title', true) ? get_post_meta(get_the_ID(),'rp_experience_title', true) : __('Experience','resume-page');
+$github_title = get_post_meta(get_the_ID(),'rp_github_title', true) ? get_post_meta(get_the_ID(),'rp_github_title', true) : __('Github Activity','resume-page');
+$skills_title = get_post_meta(get_the_ID(),'rp_skills_title', true) ? get_post_meta(get_the_ID(),'rp_skills_title', true) : __('Skills','resume-page');
+$education_title = get_post_meta(get_the_ID(),'rp_education_title', true) ? get_post_meta(get_the_ID(),'rp_education_title', true) : __('Education','resume-page');
+
 do_action('ba_resume_page_before');
 
 	?>
@@ -10,13 +26,13 @@ do_action('ba_resume_page_before');
 				<div class="resume-inner">
 
 					<!-- start resume header -->
-					<header class="row resume-section-header">
+					<header class="row resume-section-header" style="margin-bottom:40px;">
 						<div class="col-sm-3">
 							<img src="http://placekitten.com/600/400" class="img-responsive">
 						</div>
 						<div class="col-sm-6 resume-bio">
-							<h1 class="zmt resume-bio-title">Unicorn Rider</h1>
-							<h3 class="zmt resume-bio-tag">Crime Fighting Superstar</h3>
+							<h1 class="zmt resume-bio-title">Unicorn Rider
+							<h2 class="zmt resume-bio-tag"><small>Crime Fighting Superstar</small></h2>
 							<a href="#" class="resume-bio-email">email@info.com</a>
 							<a href="#" class="resume-bio-site">http://website.com</a>
 							<a class="muted resume-bio-phone" href="#">555-555-5555</a>
