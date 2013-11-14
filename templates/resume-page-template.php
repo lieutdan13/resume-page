@@ -18,6 +18,10 @@ $github_title = get_post_meta(get_the_ID(),'rp_github_title', true) ? get_post_m
 $skills_title = get_post_meta(get_the_ID(),'rp_skills_title', true) ? get_post_meta(get_the_ID(),'rp_skills_title', true) : __('Skills','resume-page');
 $education_title = get_post_meta(get_the_ID(),'rp_education_title', true) ? get_post_meta(get_the_ID(),'rp_education_title', true) : __('Education','resume-page');
 
+$skills = get_post_meta(get_the_ID(),'rp_single_skill', false);
+$schools = get_post_meta(get_the_ID(),'rp_school_places', false);
+$companies = get_post_meta(get_the_ID(),'rp_work_places', false);
+
 do_action('ba_resume_page_before');
 
 	?>
@@ -73,31 +77,20 @@ do_action('ba_resume_page_before');
 								</div>
 								<div class="col-sm-9">
 
-									<!-- company -->
-									<div class="row resume-company">
-										<div class="col-sm-9">
-											<h4 class="zmt resume-company-title">Senior Project Manager</h4>
-											<h4><small>Web Design stuidios</small></h4>
-											<p>Did some shit here</p>
+									<?php foreach($companies as $company): ?>
+										<!-- company -->
+										<div class="row resume-company">
+											<div class="col-sm-9">
+												<h4 class="zmt resume-company-title"><?php echo $company['rp_work_title'];?></h4>
+												<h4><small><?php echo $company['rp_work_company'];?></small></h4>
+												<p><?php echo $company['rp_work_desc'];?></p>
+											</div>
+											<div class="col-sm-3">
+												<p class="label label-info"><?php echo $company['rp_work_dates'];?></p>
+											</div>
 										</div>
-										<div class="col-sm-3">
-											<p class="label label-info">label</p>
-										</div>
-									</div>
-									<!-- end company -->
-
-									<!-- company -->
-									<div class="row resume-company">
-										<div class="col-sm-9">
-											<h4 class="zmt resume-company-title">Senior Project Manager</h4>
-											<h4><small>Web Design stuidios</small></h4>
-											<p>Did some shit here</p>
-										</div>
-										<div class="col-sm-3">
-											<p class="label label-info">label</p>
-										</div>
-									</div>
-									<!-- end company -->
+										<!-- end company -->
+									<?php endforeach; ?>
 
 								</div>
 							</section>
@@ -133,18 +126,12 @@ do_action('ba_resume_page_before');
 
 									<!-- skillset 1 -->
 									<div class="row">
-										<div class="col-sm-6">
+										<div class="col-sm-12">
+
 											<ul class="unstyled resume-skillset-list">
-												<li>skill</li>
-												<li>skill</li>
-												<li>skill</li>
-											</ul>
-										</div>
-										<div class="col-sm-6">
-											<ul class="unstyled resume-skillset-list">
-												<li>skill</li>
-												<li>skill</li>
-												<li>skill</li>
+												<?php foreach($skills as $skill):
+													printf('<li>%s</li>',$skill);
+												endforeach; ?>
 											</ul>
 										</div>
 									</div>
@@ -165,15 +152,17 @@ do_action('ba_resume_page_before');
 								</div>
 								<div class="col-sm-9">
 
-									<!-- skillset 1 -->
-									<div class="row resume-education-item">
-										<div class="col-sm-12">
-											<h3 class="zmt resume-education-title">Harvard</h3>
-											<h4 class="resume-education-tag"><small>Business Law</small> 4.0 GPA</h4>
-											<p>I was awesome</p>
+									<?php foreach($schools as $school): ?>
+										<!-- skillset 1 -->
+										<div class="row resume-education-item">
+											<div class="col-sm-12">
+												<h3 class="zmt resume-education-title"><?php echo $school['rp_school_name'];?></h3>
+												<h4 class="resume-education-tag"><small><?php echo $school['rp_school_course'];?></small></h4>
+												<p><?php echo $school['rp_school_desc'];?></p>
+											</div>
 										</div>
-									</div>
-									<!-- end skillset -->
+										<!-- end skillset -->
+									<?php endforeach; ?>
 
 								</div>
 							</section>
