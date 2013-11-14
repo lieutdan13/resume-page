@@ -1,0 +1,49 @@
+@import 'variables.less';
+@import 'mixins.less';
+@import 'normalize.less';
+@import 'print.less';
+@import 'scaffolding.less';
+@import 'type.less';
+@import 'grid.less';
+@import 'labels.less';
+@import 'badges.less';
+@import 'thumbnails.less';
+
+*,*:before,*:after{
+    .box-sizing(border-box);
+}
+
+
+.resume-page {
+    min-height:900px; /* For IE7 */
+    font-size: 14px;
+    line-height: 21px;
+    color:#333;
+}
+
+.resume-wrap {
+    
+    background:#CCC;
+    height:100%;
+    width:100%;
+    display:table;
+    vertical-align:middle;
+
+    .resume-container {
+        width:100%;
+        padding:40px;
+        position:relative;
+        vertical-align:middle;
+        display:table-cell;
+    }
+    
+}
+
+.resume-inner {
+    max-width: 750px;
+    padding: 40px;
+    margin: 0 auto;
+    position:relative;
+    background: rgba(255, 255, 255, .92);
+    .box-shadow (~"-1px -1px 1px rgba(0,0,0,0.10),1px 1px  0 rgba(0, 0, 0, 0.100),3px 3px  0 rgba(255, 255, 255, 1.0),4px 4px  0 rgba(0, 0, 0, 0.125),6px 6px  0 rgba(255, 255, 255, 1.0),7px 7px 0 rgba(0,0,0,0.150),9px 9px 0 rgba(255, 255, 255, 1.0),10px 10px 0 rgba(0,0,0, 0.10)");
+}
