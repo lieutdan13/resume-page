@@ -37,14 +37,14 @@ do_action('ba_resume_page_before'); // action
 						<div class="col-sm-3">
 							<img src="http://placekitten.com/600/400" class="img-responsive">
 						</div>
-						<div class="col-sm-6 resume-bio">
+						<div class="col-sm-7 resume-bio">
 							<h1 class="zmt resume-bio-title">Unicorn Rider</h1>
 							<h2 class="zmt resume-bio-tag"><small>Crime Fighting Superstar</small></h2>
 							<a href="#" class="resume-bio-email">email@info.com</a>
 							<a href="#" class="resume-bio-site">http://website.com</a>
 							<a class="muted resume-bio-phone" href="#">555-555-5555</a>
 						</div>
-						<div class="col-sm-3 resume-social-wrap">
+						<div class="col-sm-2 resume-social-wrap">
 							<ul class="resume-social unstyled">
 								<li><a href="#">tweeter</a></li>
 								<li><a href="#">tweeter</a></li>
