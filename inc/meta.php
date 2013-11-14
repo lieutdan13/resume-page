@@ -18,13 +18,26 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		////// OBJECTIVE
 		//////
 		array(
+			'id' 			=> 'rp_disable_objective',
+			'name' 			=> 'Disable the Objective Section',
+			'type' 			=> 'checkbox',
+			'cols'			=> 8
+		),
+		array(
 		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 4,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
+		),
+		array(
+		    'id'   			=> 'rp_objective_title',
 		    'name' 			=> __('Objective Title', 'resume-page'),
 		    'type' 			=> 'text',
 		    'cols'			=> 4
 		),
 		array(
-			'id'             => 'ba_resumepage_test',
+			'id'             => 'rp_objective_content',
 			'name'           => 'Objective Text',
 			'type'           => 'textarea',
 			'cols'			=> 8,
@@ -43,6 +56,19 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		    'id'   			=> 'rp_help',
 		    'name' 			=> __('Experience Section', 'resume-page'),
 		    'type' 			=> 'title',
+		),		
+		array(
+			'id' 			=> 'rp_disable_experience',
+			'name' 			=> 'Disable the Experience Section',
+			'type' 			=> 'checkbox',
+			'cols'			=> 8
+		),
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 4,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
 		),
 		array(
 			'id' 			=> 'rp_experience_title',
@@ -102,6 +128,19 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		    'name' 			=> __('Github Section', 'resume-page'),
 		    'type' 			=> 'title',
 		),
+				array(
+			'id' 			=> 'rp_disable_github',
+			'name' 			=> 'Disable the Github Section',
+			'type' 			=> 'checkbox',
+			'cols'			=> 8
+		),
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 4,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
+		),
 		///////
 		////// SKILLS
 		//////
@@ -109,6 +148,19 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		    'id'   			=> 'rp_help',
 		    'name' 			=> __('Skills Section', 'resume-page'),
 		    'type' 			=> 'title',
+		),
+				array(
+			'id' 			=> 'rp_disable_skills',
+			'name' 			=> 'Disable the Skills Section',
+			'type' 			=> 'checkbox',
+			'cols'			=> 8
+		),
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 4,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
 		),
 		array(
 			'id' 			=> 'rp_single_skill',
@@ -132,6 +184,19 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		    'id'   			=> 'rp_help',
 		    'name' 			=> __('Education Section', 'resume-page'),
 		    'type' 			=> 'title',
+		),
+		array(
+			'id' 			=> 'rp_disable_education',
+			'name' 			=> 'Disable the Education Section',
+			'type' 			=> 'checkbox',
+			'cols'			=> 8
+		),
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 4,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
 		),
 		array(
 			'id' 			=> 'rp_school_places',
