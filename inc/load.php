@@ -1,6 +1,6 @@
 <?php
 /**
-* enqueues the style.css file
+* register and enqueue our scripts and instantiations
 * deregisters scripts and styles not needed on resume page
 * cleans up wp head on resume page
 *
@@ -25,8 +25,9 @@ class ba_resume_page_run_and_cleans {
 
 	function script_init(){
 		
-		$hide_portfolio 	= get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
-		$resume = get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
+		$hide_portfolio = get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
+		$resume 		= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
+		$lightbox 		= get_post_meta(get_the_ID(),'rp_do_lightbox', true);
 
 		if ($resume && !'on' == $hide_portfolio): ?>
 			<script>
@@ -41,6 +42,10 @@ class ba_resume_page_run_and_cleans {
 				        var handler = jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?> figure');
 				        jQuery(handler).wookmark(options);
 				    });
+
+				    <?php if ($lightbox): ?>
+						jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?> .swipebox').swipebox();
+					<?php endif; ?>
 				});
 			</script>
 		<?php endif;
@@ -72,12 +77,12 @@ class ba_resume_page_run_and_cleans {
 
 	function run_clean(){
 
-		$resume = get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
-		$lightbox = get_post_meta(get_the_ID(),'rp_do_lightbox', true);
-		$hide_portfolio 	= get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
+		$resume 		= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
+		$lightbox 		= get_post_meta(get_the_ID(),'rp_do_lightbox', true);
+		$hide_portfolio = get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
 
 		// swipebox
-		wp_register_script('resume-page-lighbox',   plugins_url( '../libs/swipebox/jquery.swipebox.min.js', __FILE__ ), array('jquery'), self::version, true);
+		wp_register_script('resume-page-lightbox',   plugins_url( '../libs/swipebox/jquery.swipebox.min.js', __FILE__ ), array('jquery'), self::version, true);
 
 		// wookmark
 		wp_register_script('resume-page-wookmark', plugins_url( '../libs/wookmark/jquery.wookmark.min.js', __FILE__ ), array('jquery'), self::version, true);
@@ -94,9 +99,8 @@ class ba_resume_page_run_and_cleans {
 	    	if ( !'on' == $hide_portfolio) {
 	    		wp_enqueue_script('resume-page-wookmark');
 
-	    		if ( 'on' == $lightbox) {
-	    			wp_enqueue_style('');
-	    			wp_enqueue_script('resume-page-lightbox-style');
+	    		if ( $lightbox) {
+	    			wp_enqueue_script('resume-page-lightbox');
 	    		}
 	    	}
 

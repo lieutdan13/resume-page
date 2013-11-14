@@ -251,6 +251,19 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		    'cols'			=> 4,
 			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
 		),
+		array(
+			'id' 			=> 'rp_do_lightbox',
+			'name' 			=> 'Enable Portfolio Lightbox',
+			'type' 			=> 'checkbox',
+			'cols'			=> 8
+		),
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 4,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
+		),
 	);
 
 	$meta_boxes[] = array(
