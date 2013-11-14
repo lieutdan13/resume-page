@@ -10,20 +10,20 @@ $hide_skills 		= get_post_meta(get_the_ID(),'rp_disable_skills', true);
 $hide_education 	= get_post_meta(get_the_ID(),'rp_disable_education', true);
 $hide_portfolio 	= get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
 
-$objective_title = get_post_meta(get_the_ID(),'rp_objective_title', true) ? get_post_meta(get_the_ID(),'rp_objective_title', true) : __('Objective','resume-page');
-$objective_content = get_post_meta(get_the_ID(),'rp_objective_content', true) ? get_post_meta(get_the_ID(),'rp_objective_content', true) : __('What is your objective?','resume-page');
+$objective_title 	= get_post_meta(get_the_ID(),'rp_objective_title', true) ? get_post_meta(get_the_ID(),'rp_objective_title', true) : __('Objective','resume-page');
+$objective_content 	= get_post_meta(get_the_ID(),'rp_objective_content', true) ? get_post_meta(get_the_ID(),'rp_objective_content', true) : __('What is your objective?','resume-page');
 
-$experience_title = get_post_meta(get_the_ID(),'rp_experience_title', true) ? get_post_meta(get_the_ID(),'rp_experience_title', true) : __('Experience','resume-page');
-$github_title = get_post_meta(get_the_ID(),'rp_github_title', true) ? get_post_meta(get_the_ID(),'rp_github_title', true) : __('Github Activity','resume-page');
-$skills_title = get_post_meta(get_the_ID(),'rp_skills_title', true) ? get_post_meta(get_the_ID(),'rp_skills_title', true) : __('Skills','resume-page');
-$education_title = get_post_meta(get_the_ID(),'rp_education_title', true) ? get_post_meta(get_the_ID(),'rp_education_title', true) : __('Education','resume-page');
-$portfolio_title = get_post_meta(get_the_ID(),'rp_portfolio_title', true) ? get_post_meta(get_the_ID(),'rp_portfolio_title', true) : __('Portfolio','resume-page');
+$experience_title 	= get_post_meta(get_the_ID(),'rp_experience_title', true) ? get_post_meta(get_the_ID(),'rp_experience_title', true) : __('Experience','resume-page');
+$github_title 		= get_post_meta(get_the_ID(),'rp_github_title', true) ? get_post_meta(get_the_ID(),'rp_github_title', true) : __('Github Activity','resume-page');
+$skills_title 		= get_post_meta(get_the_ID(),'rp_skills_title', true) ? get_post_meta(get_the_ID(),'rp_skills_title', true) : __('Skills','resume-page');
+$education_title 	= get_post_meta(get_the_ID(),'rp_education_title', true) ? get_post_meta(get_the_ID(),'rp_education_title', true) : __('Education','resume-page');
+$portfolio_title 	= get_post_meta(get_the_ID(),'rp_portfolio_title', true) ? get_post_meta(get_the_ID(),'rp_portfolio_title', true) : __('Portfolio','resume-page');
 
-$skills = get_post_meta(get_the_ID(),'rp_single_skill', false);
-$schools = get_post_meta(get_the_ID(),'rp_school_places', false);
-$companies = get_post_meta(get_the_ID(),'rp_work_places', false);
+$skills 			= get_post_meta(get_the_ID(),'rp_single_skill', false);
+$schools 			= get_post_meta(get_the_ID(),'rp_school_places', false);
+$companies 			= get_post_meta(get_the_ID(),'rp_work_places', false);
 
-$themeclass = get_post_meta(get_the_ID(),'rp_theme', true) ? get_post_meta(get_the_ID(),'rp_theme', true) : 'paper';
+$themeclass 		= get_post_meta(get_the_ID(),'rp_theme', true) ? get_post_meta(get_the_ID(),'rp_theme', true) : 'paper';
 
 do_action('ba_resume_page_before'); // action
 
@@ -33,12 +33,12 @@ do_action('ba_resume_page_before'); // action
 				<div class="resume-inner">
 
 					<!-- start resume header -->
-					<header class="row resume-section-header" style="margin-bottom:40px;">
+					<header class="row resume-section-header">
 						<div class="col-sm-3">
 							<img src="http://placekitten.com/600/400" class="img-responsive">
 						</div>
 						<div class="col-sm-6 resume-bio">
-							<h1 class="zmt resume-bio-title">Unicorn Rider
+							<h1 class="zmt resume-bio-title">Unicorn Rider</h1>
 							<h2 class="zmt resume-bio-tag"><small>Crime Fighting Superstar</small></h2>
 							<a href="#" class="resume-bio-email">email@info.com</a>
 							<a href="#" class="resume-bio-site">http://website.com</a>
@@ -63,7 +63,7 @@ do_action('ba_resume_page_before'); // action
 								<div class="col-sm-3">
 									<h4 class="zmt resume-item-title"><?php echo $objective_title;?></h4>
 								</div>
-								<div class="col-sm-9 resume-objective">
+								<div class="col-sm-9 resume-objective lead">
 									<?php echo $objective_content;?>
 								</div>
 							</section>
@@ -82,10 +82,10 @@ do_action('ba_resume_page_before'); // action
 
 									<?php foreach($companies as $company): ?>
 										<!-- company -->
-										<div class="row resume-company">
+										<div class="row resume-company-item">
 											<div class="col-sm-9">
 												<h4 class="zmt resume-company-title"><?php echo $company['rp_work_title'];?></h4>
-												<h4><small><?php echo $company['rp_work_company'];?></small></h4>
+												<h4 class="zmt"><small><?php echo $company['rp_work_company'];?></small></h4>
 												<p><?php echo $company['rp_work_desc'];?></p>
 											</div>
 											<div class="col-sm-3">

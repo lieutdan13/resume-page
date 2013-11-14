@@ -294,7 +294,7 @@ function ba_resumepage_meta( array $meta_boxes ) {
 				'id' 			=> 'rp_theme',
 				'name' 			=> ' ',
 				'type' 			=> 'select',
-				'default'		=> 'corporate',
+				'default'		=> 'paper',
 				'options'		=> array(
 					'corporate'     => __('Corporate','showoff'),
 					'modern'     => __('Modern','showoff'),
