@@ -121,27 +121,6 @@ function ba_resumepage_meta( array $meta_boxes ) {
 			'desc'    		=> __('<span class="ba-help-icon">?</span>If you have entered 3 post id\'s above, and you are using the full nav menu option, then generate those labels here. So if you have 3 post id\'s entered, then generate 3 items.','projects-part-deux')
 		),
 		///////
-		////// GITHUB
-		//////
-		array(
-		    'id'   			=> 'rp_help',
-		    'name' 			=> __('Github Section', 'resume-page'),
-		    'type' 			=> 'title',
-		),
-				array(
-			'id' 			=> 'rp_disable_github',
-			'name' 			=> 'Disable the Github Section',
-			'type' 			=> 'checkbox',
-			'cols'			=> 8
-		),
-		array(
-		    'id'   			=> 'rp_help',
-		    'name' 			=> __(' ', 'resume-page'),
-		    'type' 			=> 'title',
-		    'cols'			=> 4,
-			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
-		),
-		///////
 		////// SKILLS
 		//////
 		array(
@@ -229,7 +208,49 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		    'type' 			=> 'title',
 		    'cols'			=> 4,
 			'desc'    		=> __('<span class="ba-help-icon">?</span>If you have entered 3 post id\'s above, and you are using the full nav menu option, then generate those labels here. So if you have 3 post id\'s entered, then generate 3 items.','projects-part-deux')
-		)
+		),
+		///////
+		////// GITHUB
+		//////
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __('Github Section', 'resume-page'),
+		    'type' 			=> 'title',
+		),
+				array(
+			'id' 			=> 'rp_disable_github',
+			'name' 			=> 'Disable the Github Section',
+			'type' 			=> 'checkbox',
+			'cols'			=> 8
+		),
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 4,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
+		),
+		///////
+		////// PORTFOLIO
+		//////
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __('Portfolio Section', 'resume-page'),
+		    'type' 			=> 'title',
+		),
+		array(
+			'id' 			=> 'rp_disable_portfolio',
+			'name' 			=> 'Disable the Portfolio Section',
+			'type' 			=> 'checkbox',
+			'cols'			=> 8
+		),
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 4,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
+		),
 	);
 
 	$meta_boxes[] = array(

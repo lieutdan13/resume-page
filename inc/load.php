@@ -20,6 +20,30 @@ class ba_resume_page_run_and_cleans {
 
 		add_action('wp_print_styles', array($this,'clean_head'));
 		add_action('wp_enqueue_scripts',	array($this,'run_clean'));
+		add_action('wp_head', array($this,'script_init'));
+	}
+
+	function script_init(){
+		
+		$hide_portfolio 	= get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
+		$resume = get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
+
+		if ($resume && !'on' == $hide_portfolio): ?>
+			<script>
+				jQuery(document).ready(function(){
+				    jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?>').imagesLoaded(function() {
+				        var options = {
+				          	autoResize: true,
+				          	container: jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?>'),
+				          	offset: 5,
+				          	flexibleWidth:195
+				        };
+				        var handler = jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?> figure');
+				        jQuery(handler).wookmark(options);
+				    });
+				});
+			</script>
+		<?php endif;
 	}
 
 	function clean_head(){
@@ -49,6 +73,15 @@ class ba_resume_page_run_and_cleans {
 	function run_clean(){
 
 		$resume = get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
+		$lightbox = get_post_meta(get_the_ID(),'rp_do_lightbox', true);
+		$hide_portfolio 	= get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
+
+		// swipebox
+		wp_register_script('resume-page-lighbox',   plugins_url( '../libs/swipebox/jquery.swipebox.min.js', __FILE__ ), array('jquery'), self::version, true);
+
+		// wookmark
+		wp_register_script('resume-page-wookmark', plugins_url( '../libs/wookmark/jquery.wookmark.min.js', __FILE__ ), array('jquery'), self::version, true);
+
 
 	    if ( $resume ) {
 
@@ -57,6 +90,15 @@ class ba_resume_page_run_and_cleans {
 
 	    	// remove comment reply script on resume page
 	    	wp_deregister_script( 'comment-reply' );
+
+	    	if ( !'on' == $hide_portfolio) {
+	    		wp_enqueue_script('resume-page-wookmark');
+
+	    		if ( 'on' == $lightbox) {
+	    			wp_enqueue_style('');
+	    			wp_enqueue_script('resume-page-lightbox-style');
+	    		}
+	    	}
 
 	    }
 

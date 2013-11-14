@@ -17,6 +17,7 @@ $experience_title = get_post_meta(get_the_ID(),'rp_experience_title', true) ? ge
 $github_title = get_post_meta(get_the_ID(),'rp_github_title', true) ? get_post_meta(get_the_ID(),'rp_github_title', true) : __('Github Activity','resume-page');
 $skills_title = get_post_meta(get_the_ID(),'rp_skills_title', true) ? get_post_meta(get_the_ID(),'rp_skills_title', true) : __('Skills','resume-page');
 $education_title = get_post_meta(get_the_ID(),'rp_education_title', true) ? get_post_meta(get_the_ID(),'rp_education_title', true) : __('Education','resume-page');
+$portfolio_title = get_post_meta(get_the_ID(),'rp_portfolio_title', true) ? get_post_meta(get_the_ID(),'rp_portfolio_title', true) : __('Portfolio','resume-page');
 
 $skills = get_post_meta(get_the_ID(),'rp_single_skill', false);
 $schools = get_post_meta(get_the_ID(),'rp_school_places', false);
@@ -64,12 +65,12 @@ do_action('ba_resume_page_before');
 									<?php echo $objective_content;?>
 								</div>
 							</section>
+							<hr />
 							<!-- end objective -->
-						<?php } ?>
+						<?php }
 
-						<hr />
 
-						<?php if (!$hide_experience) { ?>
+						if (!$hide_experience) { ?>
 							<!-- start work experience wrap -->
 							<section class="row resume-work-wrap">
 								<div class="col-sm-3">
@@ -96,23 +97,6 @@ do_action('ba_resume_page_before');
 							</section>
 							<hr />
 							<!-- end work experience wrap -->
-						<?php }
-
-
-						if (!$hide_github) { ?>
-							<!-- start github activity stream -->
-							<section class="row resume-github-wrap">
-								<div class="col-sm-3">
-									<h4 class="zmt resume-item-title"><?php echo $github_title;?></h4>
-								</div>
-								<div class="col-sm-9 github-stream-wrap">
-									<ul class="github-stream unstyled">
-										<?php echo ba_resume_page_github_feed( 'bearded-avenger', $excluded = array(), $count = 5, $include_css = true);?>
-									</ul>
-								</div>
-							</section>
-							<hr />
-							<!-- end github activity stream -->
 						<?php }
 
 
@@ -166,7 +150,37 @@ do_action('ba_resume_page_before');
 
 								</div>
 							</section>
+							<hr />
 							<!-- end education wrap -->
+						<?php }
+
+						if (!$hide_github) { ?>
+							<!-- start github activity stream -->
+							<section class="row resume-github-wrap">
+								<div class="col-sm-3">
+									<h4 class="zmt resume-item-title"><?php echo $github_title;?></h4>
+								</div>
+								<div class="col-sm-9 github-stream-wrap">
+									<ul class="github-stream unstyled">
+										<?php echo ba_resume_page_github_feed( 'bearded-avenger', $excluded = array(), $count = 5, $include_css = true);?>
+									</ul>
+								</div>
+							</section>
+							<hr />
+							<!-- end github activity stream -->
+						<?php }
+
+						if (!$hide_portfolio) { ?>
+							<!-- start portfolio -->
+							<section class="row resume-portfolio-wrap">
+								<div class="col-sm-3">
+									<h4 class="zmt resume-item-title"><?php echo $portfolio_title;?></h4>
+								</div>
+								<div class="col-sm-9 resume-porfolio">
+									<?php echo ba_resume_page_portfolio();?>
+								</div>
+							</section>
+							<!-- end portfolio -->
 						<?php } ?>
 
 					</main>

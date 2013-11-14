@@ -22,7 +22,7 @@ class ba_Resume_Page_Pimpin {
     	require_once('inc/meta.php' );
     	require_once('inc/load.php' );
     	require_once('inc/feed.php' );
-
+    	require_once('inc/gallery.php' );
 
 		add_action( 'init', 	array($this,'textdomain'));
 		add_filter( 'template_include', array($this,'template_loader'));
