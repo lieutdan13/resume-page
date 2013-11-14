@@ -285,6 +285,25 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		)
 	);
 
+	$meta_boxes[] = array(
+		'title' => __('Resume Page Theme', 'resume-page'),
+		'pages' => array('page'),
+		'context'    => 'side',
+		'fields' => array(
+			array(
+				'id' 			=> 'rp_theme',
+				'name' 			=> ' ',
+				'type' 			=> 'select',
+				'default'		=> 'corporate',
+				'options'		=> array(
+					'corporate'     => __('Corporate','showoff'),
+					'modern'     => __('Modern','showoff'),
+					'paper'     => __('Paper Stack','showoff'),
+				)
+			)
+		)
+	);
+
 	return $meta_boxes;
 
 }

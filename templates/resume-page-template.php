@@ -23,10 +23,12 @@ $skills = get_post_meta(get_the_ID(),'rp_single_skill', false);
 $schools = get_post_meta(get_the_ID(),'rp_school_places', false);
 $companies = get_post_meta(get_the_ID(),'rp_work_places', false);
 
+$themeclass = get_post_meta(get_the_ID(),'rp_theme', true) ? get_post_meta(get_the_ID(),'rp_theme', true) : 'corporate';
+
 do_action('ba_resume_page_before');
 
 	?>
-		<section class="resume-wrap">
+		<section class="resume-wrap <?php echo $themeclass;?>">
 			<div class="resume-container">
 				<div class="resume-inner">
 
@@ -140,7 +142,7 @@ do_action('ba_resume_page_before');
 										<!-- skillset 1 -->
 										<div class="row resume-education-item">
 											<div class="col-sm-12">
-												<h3 class="zmt resume-education-title"><?php echo $school['rp_school_name'];?></h3>
+												<h4 class="zmt resume-education-title"><?php echo $school['rp_school_name'];?></h4>
 												<h4 class="resume-education-tag"><small><?php echo $school['rp_school_course'];?></small></h4>
 												<p><?php echo $school['rp_school_desc'];?></p>
 											</div>
