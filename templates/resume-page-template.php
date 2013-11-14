@@ -158,7 +158,7 @@ do_action('ba_resume_page_before'); // action
 
 						if (!$hide_github) { ?>
 							<!-- start github activity stream -->
-							<section class="row resume-github-wrap">
+							<section class="row resume-github-wrap no-print">
 								<div class="col-sm-3">
 									<h4 class="zmt resume-item-title"><?php echo $github_title;?></h4>
 								</div>
@@ -174,7 +174,7 @@ do_action('ba_resume_page_before'); // action
 
 						if (!$hide_portfolio) { ?>
 							<!-- start portfolio -->
-							<section class="row resume-portfolio-wrap">
+							<section class="row resume-portfolio-wrap no-print">
 								<div class="col-sm-3">
 									<h4 class="zmt resume-item-title"><?php echo $portfolio_title;?></h4>
 								</div>
