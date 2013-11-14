@@ -23,9 +23,9 @@ $skills = get_post_meta(get_the_ID(),'rp_single_skill', false);
 $schools = get_post_meta(get_the_ID(),'rp_school_places', false);
 $companies = get_post_meta(get_the_ID(),'rp_work_places', false);
 
-$themeclass = get_post_meta(get_the_ID(),'rp_theme', true) ? get_post_meta(get_the_ID(),'rp_theme', true) : 'corporate';
+$themeclass = get_post_meta(get_the_ID(),'rp_theme', true) ? get_post_meta(get_the_ID(),'rp_theme', true) : 'paper';
 
-do_action('ba_resume_page_before');
+do_action('ba_resume_page_before'); // action
 
 	?>
 		<section class="resume-wrap <?php echo $themeclass;?>">
@@ -194,6 +194,6 @@ do_action('ba_resume_page_before');
 		</section>
 	<?php
 
-do_action('ba_resume_page_after');
+do_action('ba_resume_page_after'); // action
 
 wp_footer();
