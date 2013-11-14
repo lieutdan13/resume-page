@@ -264,6 +264,20 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		    'cols'			=> 4,
 			'desc'			=> __('<span class="ba-help-icon">?</span>Checking this box will deactivate the Experience portion. This means the fields below will have no affect. ','resume-page')
 		),
+		///////
+		////// DESIGN
+		//////
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __('Portfolio Section', 'resume-page'),
+		    'type' 			=> 'title',
+		),
+		array(
+			'id' 			=> 'rp_txt_color',
+			'name' 			=> 'Text Color',
+			'type' 			=> 'colorpicker',
+			'default'		=> '#333333'
+		)
 	);
 
 	$meta_boxes[] = array(
@@ -303,6 +317,7 @@ function ba_resumepage_meta( array $meta_boxes ) {
 			)
 		)
 	);
+
 
 	return $meta_boxes;
 

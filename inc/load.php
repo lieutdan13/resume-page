@@ -21,6 +21,20 @@ class ba_resume_page_run_and_cleans {
 		add_action('wp_print_styles', array($this,'clean_head'));
 		add_action('wp_enqueue_scripts',	array($this,'run_clean'));
 		add_action('wp_head', array($this,'script_init'));
+		add_action('wp_head', array($this,'user_styles'));
+	}
+
+	function user_styles(){
+
+		$txtcolor = get_post_meta(get_the_ID(),'rp_txt_color', true);
+		if ($txtcolor): ?>
+		<!-- Resume Page User Styles -->
+		<style>
+		.resume-wrap {
+			color:white;
+		}
+		</style>
+		<?php endif;
 	}
 
 	function script_init(){
