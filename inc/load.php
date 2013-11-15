@@ -21,20 +21,25 @@ class ba_resume_page_run_and_cleans {
 		add_action('wp_print_styles', array($this,'clean_head'));
 		add_action('wp_enqueue_scripts',	array($this,'run_clean'));
 		add_action('wp_head', array($this,'script_init'));
-		add_action('wp_head', array($this,'user_styles'));
+		add_action('wp_head', array($this,'user_styles'), 2);
 	}
 
 	function user_styles(){
 
-		$txtcolor 			= get_post_meta(get_the_ID(),'rp_txt_color', true);
 
-		$get_container_color 	= get_post_meta(get_the_ID(),'rp_container_color', true);
-		$container_color 		= $get_container_color ? $this->hex2rgb($get_container_color) : false;
-		$container_rgba 		= $container_color ? sprintf('%s,%s,%s',$container_color['red'],$container_color['green'],$container_color['blue']) : false;
-		$final_container_color = $container_rgba ? sprintf('background:%s;background:rgba(%s,0.5);',$get_container_color,$container_rgba) : false;
+		$resume 				= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
+		
+		$txtcolor 				= get_post_meta(get_the_ID(),'rp_txt_color', true) ? get_post_meta(get_the_ID(),'rp_txt_color', true) : '#333333';
+		$link_color				= get_post_meta(get_the_ID(),'rp_accent_color', true) ? get_post_meta(get_the_ID(),'rp_accent_color', true) : '#07A1CD';
+		$container_opacity 		= get_post_meta(get_the_ID(), 'rp_container_opacity', true) ? get_post_meta(get_the_ID(), 'rp_container_opacity', true) : '0.7';
+		
+		$get_container_color 	= get_post_meta(get_the_ID(),'rp_container_color', true) ? get_post_meta(get_the_ID(),'rp_container_color', true) : '#FFFFFF';
+		$container_to_rgba 		= $get_container_color ? $this->hex2rgb($get_container_color) : false;
+		$container_rgba 		= $get_container_color ? sprintf('%s,%s,%s',$container_to_rgba['red'],$container_to_rgba['green'],$container_to_rgba['blue']) : false;
+		$final_container_color 	= $get_container_color ? sprintf('background:%s;background:rgba(%s,%s);',$get_container_color,$container_rgba,$container_opacity) : false;
 
-		if ($txtcolor || $container_color): ?>
-		<!-- Resume Page User Styles -->
+		if ( $resume && $txtcolor || $container_color || $link_color): ?>
+		<!-- Resume Page - User Set Styles -->
 		<style>
 		.resume-wrap {
 			color:<?php echo $txtcolor;?>;
@@ -42,17 +47,27 @@ class ba_resume_page_run_and_cleans {
 		.resume-inner {
 			<?php echo $final_container_color;?>;
 		}
+		.label-resume {
+			background:<?php echo $link_color;?>;
+		}
+		.resume-wrap a {
+			color:<?php echo $link_color;?>;
+		}
 		</style>
 		<?php endif;
 	}
 
 	function script_init(){
 		
-		$hide_portfolio = get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
-		$resume 		= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
-		$lightbox 		= get_post_meta(get_the_ID(),'rp_do_lightbox', true);
-
+		$hide_portfolio 		= get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
+		$resume 				= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
+		$lightbox 				= get_post_meta(get_the_ID(),'rp_do_lightbox', true);
+		$txtcolor 				= get_post_meta(get_the_ID(),'rp_txt_color', true) ? get_post_meta(get_the_ID(),'rp_txt_color', true) : '#333333';
+		$get_container_color 	= get_post_meta(get_the_ID(),'rp_container_color', true) ? get_post_meta(get_the_ID(),'rp_container_color', true) : '#FFFFFF';
+		$link_color				= get_post_meta(get_the_ID(),'rp_accent_color', true) ? get_post_meta(get_the_ID(),'rp_accent_color', true) : '#07A1CD';
+		
 		if ($resume && !'on' == $hide_portfolio): ?>
+			<!-- Resume Page - Script Instantiations -->
 			<script>
 				jQuery(document).ready(function(){
 				    jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?>').imagesLoaded(function() {
@@ -69,6 +84,12 @@ class ba_resume_page_run_and_cleans {
 				    <?php if ($lightbox): ?>
 						jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?> .swipebox').swipebox();
 					<?php endif; ?>
+					//tinycolor
+					accentcolor = tinycolor('<?php echo $get_container_color; ?>');
+					txtcolor = tinycolor('<?php echo $txtcolor; ?>');
+
+					jQuery('.resume-wrap small, .resume-wrap .text-muted').css({'color':  tinycolor.darken(txtcolor, 25).toRgbString() });
+					jQuery('.resume-wrap hr').css({'border-top-color':  tinycolor.lighten(accentcolor, 13).toRgbString() });
 				});
 			</script>
 		<?php endif;
@@ -104,26 +125,21 @@ class ba_resume_page_run_and_cleans {
 		$lightbox 		= get_post_meta(get_the_ID(),'rp_do_lightbox', true);
 		$hide_portfolio = get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
 
-		// swipebox
-		wp_register_script('resume-page-lightbox',   plugins_url( '../libs/swipebox/jquery.swipebox.min.js', __FILE__ ), array('jquery'), self::version, true);
-
-		// wookmark
-		wp_register_script('resume-page-wookmark', plugins_url( '../libs/wookmark/jquery.wookmark.min.js', __FILE__ ), array('jquery'), self::version, true);
-
 
 	    if ( $resume ) {
 
 	    	wp_enqueue_script('jquery');
 	    	wp_enqueue_style( 'resume-page-style', plugins_url( '../css/style.css' , __FILE__ ) , self::version, true);
+	    	wp_enqueue_script('resume-page-color', plugins_url( '../libs/tinycolor-min.js' , __FILE__ ), array('jquery'), self::version, true);
 
 	    	// remove comment reply script on resume page
 	    	wp_deregister_script( 'comment-reply' );
 
 	    	if ( !'on' == $hide_portfolio) {
-	    		wp_enqueue_script('resume-page-wookmark');
+	    		wp_enqueue_script('resume-page-wookmark', plugins_url( '../libs/wookmark/jquery.wookmark.min.js', __FILE__ ), array('jquery'), self::version, true);
 
 	    		if ( $lightbox) {
-	    			wp_enqueue_script('resume-page-lightbox');
+	    			wp_enqueue_script('resume-page-lightbox',   plugins_url( '../libs/swipebox/jquery.swipebox.min.js', __FILE__ ), array('jquery'), self::version, true);
 	    		}
 	    	}
 
