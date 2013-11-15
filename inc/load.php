@@ -26,12 +26,21 @@ class ba_resume_page_run_and_cleans {
 
 	function user_styles(){
 
-		$txtcolor = get_post_meta(get_the_ID(),'rp_txt_color', true);
-		if ($txtcolor): ?>
+		$txtcolor 			= get_post_meta(get_the_ID(),'rp_txt_color', true);
+
+		$get_container_color 	= get_post_meta(get_the_ID(),'rp_container_color', true);
+		$container_color 		= $get_container_color ? $this->hex2rgb($get_container_color) : false;
+		$container_rgba 		= $container_color ? sprintf('%s,%s,%s',$container_color['red'],$container_color['green'],$container_color['blue']) : false;
+		$final_container_color = $container_rgba ? sprintf('background:%s;background:rgba(%s,0.5);',$get_container_color,$container_rgba) : false;
+
+		if ($txtcolor || $container_color): ?>
 		<!-- Resume Page User Styles -->
 		<style>
 		.resume-wrap {
-			color:white;
+			color:<?php echo $txtcolor;?>;
+		}
+		.resume-inner {
+			<?php echo $final_container_color;?>;
 		}
 		</style>
 		<?php endif;
@@ -122,6 +131,22 @@ class ba_resume_page_run_and_cleans {
 
 	}
 
+    function hex2rgb( $colour ) {
+        if ( $colour[0] == '#' ) {
+                $colour = substr( $colour, 1 );
+        }
+        if ( strlen( $colour ) == 6 ) {
+                list( $r, $g, $b ) = array( $colour[0] . $colour[1], $colour[2] . $colour[3], $colour[4] . $colour[5] );
+        } elseif ( strlen( $colour ) == 3 ) {
+                list( $r, $g, $b ) = array( $colour[0] . $colour[0], $colour[1] . $colour[1], $colour[2] . $colour[2] );
+        } else {
+                return false;
+        }
+        $r = hexdec( $r );
+        $g = hexdec( $g );
+        $b = hexdec( $b );
+        return array( 'red' => $r, 'green' => $g, 'blue' => $b );
+	}
 
 }
 new ba_resume_page_run_and_cleans;

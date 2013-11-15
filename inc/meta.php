@@ -269,7 +269,7 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		//////
 		array(
 		    'id'   			=> 'rp_help',
-		    'name' 			=> __('Portfolio Section', 'resume-page'),
+		    'name' 			=> __('Design', 'resume-page'),
 		    'type' 			=> 'title',
 		),
 		array(
@@ -277,6 +277,22 @@ function ba_resumepage_meta( array $meta_boxes ) {
 			'name' 			=> 'Text Color',
 			'type' 			=> 'colorpicker',
 			'default'		=> '#333333'
+		),
+		array(
+			'id' 			=> 'rp_container_color',
+			'name' 			=> 'Container Color',
+			'type' 			=> 'colorpicker',
+			'default'		=> '#FFFFFF'
+		),
+		array(
+			'id' 			=> 'rp_container_opacity',
+			'name' 			=> 'Container Opacity',
+			'type' 			=> 'select',
+			'default'		=> '0.8',
+			'options'		=> array(
+				'0.1'		=> '0.1',
+				'0.2'		=> '0.2'
+			)
 		)
 	);
 
