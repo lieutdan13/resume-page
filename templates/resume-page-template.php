@@ -48,15 +48,15 @@ do_action('ba_resume_page_before'); // action
 						<div class="col-sm-7 resume-bio">
 							<h1 class="zmt resume-bio-title">Unicorn Rider</h1>
 							<h2 class="zmt resume-bio-tag"><small>Crime Fighting Superstar</small></h2>
-							<a href="#" class="resume-bio-email">email@info.com</a>
-							<a href="#" class="resume-bio-site">http://website.com</a>
-							<a class="resume-bio-phone" href="#">555-555-5555</a>
+							<a href="#" class="resume-bio-email"><i class="resumecon resumecon-envelope"></i> email@info.com</a>
+							<a href="#" class="resume-bio-site"><i class="resumecon resumecon-globe"></i> http://website.com</a>
+							<a class="resume-bio-phone" href="#"><i class="resumecon resumecon-phone-square"></i> 555-555-5555</a>
 						</div>
 						<div class="col-sm-2 resume-social-wrap tar">
 							<ul class="resume-social unstyled">
-								<li><a href="#">tweeter</a></li>
-								<li><a href="#">tweeter</a></li>
-								<li><a href="#">tweeter</a></li>
+								<li><a href="#">tweeter <i class="resumecon resumecon-twitter-square"></i></a></li>
+								<li><a href="#">facebook <i class="resumecon resumecon-facebook-square"></i></a></li>
+								<li><a href="#">github <i class="resumecon resumecon-github-square"></i></a></li>
 							</ul>
 						</div>
 					</header>
