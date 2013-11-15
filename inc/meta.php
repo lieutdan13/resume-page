@@ -279,6 +279,12 @@ function ba_resumepage_meta( array $meta_boxes ) {
 			'default'		=> '#333333'
 		),
 		array(
+			'id' 			=> 'rp_accent_color',
+			'name' 			=> 'Accent Color',
+			'type' 			=> 'colorpicker',
+			'default'		=> '#07A1CD'
+		),
+		array(
 			'id' 			=> 'rp_container_color',
 			'name' 			=> 'Container Color',
 			'type' 			=> 'colorpicker',

@@ -26,19 +26,18 @@ class ba_resume_page_run_and_cleans {
 
 	function user_styles(){
 
-
 		$resume 				= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
-		
+
 		$txtcolor 				= get_post_meta(get_the_ID(),'rp_txt_color', true) ? get_post_meta(get_the_ID(),'rp_txt_color', true) : '#333333';
 		$link_color				= get_post_meta(get_the_ID(),'rp_accent_color', true) ? get_post_meta(get_the_ID(),'rp_accent_color', true) : '#07A1CD';
 		$container_opacity 		= get_post_meta(get_the_ID(), 'rp_container_opacity', true) ? get_post_meta(get_the_ID(), 'rp_container_opacity', true) : '0.7';
-		
+
 		$get_container_color 	= get_post_meta(get_the_ID(),'rp_container_color', true) ? get_post_meta(get_the_ID(),'rp_container_color', true) : '#FFFFFF';
 		$container_to_rgba 		= $get_container_color ? $this->hex2rgb($get_container_color) : false;
 		$container_rgba 		= $get_container_color ? sprintf('%s,%s,%s',$container_to_rgba['red'],$container_to_rgba['green'],$container_to_rgba['blue']) : false;
 		$final_container_color 	= $get_container_color ? sprintf('background:%s;background:rgba(%s,%s);',$get_container_color,$container_rgba,$container_opacity) : false;
 
-		if ( $resume && $txtcolor || $container_color || $link_color): ?>
+		if ( ($resume) && ($txtcolor || $get_container_color || $link_color)): ?>
 		<!-- Resume Page - User Set Styles -->
 		<style>
 		.resume-wrap {
@@ -58,14 +57,14 @@ class ba_resume_page_run_and_cleans {
 	}
 
 	function script_init(){
-		
+
 		$hide_portfolio 		= get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
 		$resume 				= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
 		$lightbox 				= get_post_meta(get_the_ID(),'rp_do_lightbox', true);
 		$txtcolor 				= get_post_meta(get_the_ID(),'rp_txt_color', true) ? get_post_meta(get_the_ID(),'rp_txt_color', true) : '#333333';
 		$get_container_color 	= get_post_meta(get_the_ID(),'rp_container_color', true) ? get_post_meta(get_the_ID(),'rp_container_color', true) : '#FFFFFF';
 		$link_color				= get_post_meta(get_the_ID(),'rp_accent_color', true) ? get_post_meta(get_the_ID(),'rp_accent_color', true) : '#07A1CD';
-		
+
 		if ($resume && !'on' == $hide_portfolio): ?>
 			<!-- Resume Page - Script Instantiations -->
 			<script>
