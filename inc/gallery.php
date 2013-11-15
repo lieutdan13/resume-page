@@ -29,31 +29,31 @@ if (!function_exists('ba_resume_page_portfolio')) {
 		$out = '';
 
 		// action
-		$out .= sprintf('%s', do_action('spacebox_before'));
+		$out .= sprintf('%s', do_action('rp-portfolio-box_before'));
 
 		// print the shortcode
-		$out .= sprintf('<section class="clearfix space-boxes space-boxes-%s">',get_the_ID());
+		$out .= sprintf('<section class="clearfix rp-portfolio-boxes rp-portfolio-boxes-%s">',get_the_ID());
 
 			foreach($images as $image):
 
-				$getimage 		= wp_get_attachment_image($image->ID, 'medium', false, array('class' => 'spacebox-box-image'));
+				$getimage 		= wp_get_attachment_image($image->ID, 'medium', false, array('class' => 'rp-portfolio-box-box-image'));
 				$getimgsrc 		= wp_get_attachment_image_src($image->ID,'large');
 				$img_title 	  	= $image->post_title;
 
 				if ($lightbox) {
 					$image 		= sprintf('<a class="swipebox" href="%s" title="%s">%s</a>',$getimgsrc[0],$img_title,$getimage);
 				} else {
-					$image 		= wp_get_attachment_image($image->ID, 'medium', false, array('class' => 'spacebox-box-image'));
+					$image 		= wp_get_attachment_image($image->ID, 'medium', false, array('class' => 'rp-portfolio-box-box-image'));
 				}
 
-               	$out 			.= sprintf('<figure class="spacebox">%s</figure>',$image);
+               	$out 			.= sprintf('<figure class="rp-portfolio-box">%s</figure>',$image);
 
             endforeach;
 
         $out .= sprintf('</section>');
 
         // action
-		$out .= sprintf('%s', do_action('spacebox_after'));
+		$out .= sprintf('%s', do_action('rp-portfolio-box_after'));
 
 		return apply_filters('space_boxes_output',$out);
 	}

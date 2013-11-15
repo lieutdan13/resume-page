@@ -1,12 +1,10 @@
 <?php
 /**
 * register and enqueue our scripts and instantiations
+* add user styles to head
 * deregisters scripts and styles not needed on resume page
 * cleans up wp head on resume page
-*
 * @since version 1.0
-* @param null
-* @return js files and instantiations
 */
 
 // Exit if accessed directly
@@ -69,26 +67,26 @@ class ba_resume_page_run_and_cleans {
 			<!-- Resume Page - Script Instantiations -->
 			<script>
 				jQuery(document).ready(function(){
-				    jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?>').imagesLoaded(function() {
+				    jQuery('.rp-portfolio-boxes.rp-portfolio-boxes-<?php echo get_the_ID();?>').imagesLoaded(function() {
 				        var options = {
 				          	autoResize: true,
-				          	container: jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?>'),
+				          	container: jQuery('.rp-portfolio-boxes.rp-portfolio-boxes-<?php echo get_the_ID();?>'),
 				          	offset: 5,
 				          	flexibleWidth:195
 				        };
-				        var handler = jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?> figure');
+				        var handler = jQuery('.rp-portfolio-boxes.rp-portfolio-boxes-<?php echo get_the_ID();?> figure');
 				        jQuery(handler).wookmark(options);
 				    });
 
 				    <?php if ($lightbox): ?>
-						jQuery('.space-boxes.space-boxes-<?php echo get_the_ID();?> .swipebox').swipebox();
+						jQuery('.rp-portfolio-boxes.rp-portfolio-boxes-<?php echo get_the_ID();?> .swipebox').swipebox();
 					<?php endif; ?>
 					//tinycolor
 					accentcolor = tinycolor('<?php echo $get_container_color; ?>');
 					txtcolor = tinycolor('<?php echo $txtcolor; ?>');
 
 					jQuery('.resume-wrap small, .resume-wrap .text-muted').css({'color':  tinycolor.darken(txtcolor, 25).toRgbString() });
-					jQuery('.resume-wrap hr').css({'border-top-color':  tinycolor.lighten(accentcolor, 13).toRgbString() });
+					jQuery('.resume-wrap hr').css({'border-top-color':  tinycolor.darken(accentcolor, 5).toRgbString() });
 				});
 			</script>
 		<?php endif;
