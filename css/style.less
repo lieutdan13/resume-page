@@ -47,6 +47,10 @@
     .box-sizing(border-box);
 }
 
+a i {
+   font-size:0.95em;
+}
+
 ul {
     list-style: none;
     padding:0;
@@ -79,6 +83,43 @@ ul {
 
 .resume-item-title {
     font-style: italic;
+}
+
+//bio
+.resume-section-header {
+    .resume-bio-meta {
+        margin:20px 0 0;
+        padding:0;
+
+        i {
+            margin-right:4px;
+        }
+    }
+    .resume-bio-title {
+        margin-bottom:3px;
+    }
+    .resume-bio-social {
+        li {
+            display: inline-block;
+
+            a {
+                font-size:1.8em;
+                margin-right:5px;
+            }
+
+            &:last-child a {
+                margin-right:0;
+            }
+        }
+    }
+}
+
+//skillset
+.resume-skillset-list {
+    li i {
+        color: @brand-success;
+        margin-right:4px;
+    }
 }
 
 // Github Stream

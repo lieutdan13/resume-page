@@ -38,6 +38,7 @@ class ba_resume_page_run_and_cleans {
 		if ( ($resume) && ($txtcolor || $get_container_color || $link_color)): ?>
 		<!-- Resume Page - User Set Styles -->
 		<style>
+		.resume-wrap a i,
 		.resume-wrap {
 			color:<?php echo $txtcolor;?>;
 		}
@@ -47,6 +48,7 @@ class ba_resume_page_run_and_cleans {
 		.label-resume {
 			background:<?php echo $link_color;?>;
 		}
+		.resume-bio-social a:hover i,
 		.resume-wrap a {
 			color:<?php echo $link_color;?>;
 		}

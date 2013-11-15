@@ -43,20 +43,22 @@ do_action('ba_resume_page_before'); // action
 					<!-- start resume header -->
 					<header class="row resume-section-header">
 						<div class="col-sm-3">
-							<img src="http://placekitten.com/600/400" class="img-responsive">
+							<img src="http://placekitten.com/600/600" class="img-responsive">
 						</div>
 						<div class="col-sm-7 resume-bio">
 							<h1 class="zmt resume-bio-title">Unicorn Rider</h1>
 							<h2 class="zmt resume-bio-tag"><small>Crime Fighting Superstar</small></h2>
-							<a href="#" class="resume-bio-email"><i class="resumecon resumecon-envelope"></i> email@info.com</a>
-							<a href="#" class="resume-bio-site"><i class="resumecon resumecon-globe"></i> http://website.com</a>
-							<a class="resume-bio-phone" href="#"><i class="resumecon resumecon-phone-square"></i> 555-555-5555</a>
+							<ul class="resume-bio-meta">
+								<li><a href="mailto:email@info.com" class="resume-bio-email"><i class="resumecon resumecon-envelope"></i> email@info.com</a></li>
+								<li><a href="http://website.com" target="_blank" class="resume-bio-site"><i class="resumecon resumecon-globe"></i> http://website.com</a></li>
+								<li><i class="resumecon resumecon-phone-square"></i> 555-555-5555</li>
+							</ul>
 						</div>
 						<div class="col-sm-2 resume-social-wrap tar">
-							<ul class="resume-social unstyled">
-								<li><a href="#">tweeter <i class="resumecon resumecon-twitter-square"></i></a></li>
-								<li><a href="#">facebook <i class="resumecon resumecon-facebook-square"></i></a></li>
-								<li><a href="#">github <i class="resumecon resumecon-github-square"></i></a></li>
+							<ul class="resume-bio-social unstyled">
+								<li><a href="#"><i class="resumecon resumecon-twitter-square"></i></a></li>
+								<li><a href="#"><i class="resumecon resumecon-facebook-square"></i></a></li>
+								<li><a href="#"><i class="resumecon resumecon-github-square"></i></a></li>
 							</ul>
 						</div>
 					</header>
@@ -124,7 +126,7 @@ do_action('ba_resume_page_before'); // action
 
 											<ul class="unstyled resume-skillset-list">
 												<?php foreach($skills as $skill):
-													printf('<li>%s</li>',$skill);
+													printf('<li><i class="resumecon resumecon-check"></i> %s</li>',$skill);
 												endforeach; ?>
 											</ul>
 										</div>
