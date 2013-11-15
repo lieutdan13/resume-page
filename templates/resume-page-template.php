@@ -56,9 +56,9 @@ do_action('ba_resume_page_before'); // action
 						</div>
 						<div class="col-sm-2 resume-social-wrap tar">
 							<ul class="resume-bio-social unstyled">
-								<li><a href="#"><i class="resumecon resumecon-twitter-square"></i></a></li>
-								<li><a href="#"><i class="resumecon resumecon-facebook-square"></i></a></li>
-								<li><a href="#"><i class="resumecon resumecon-github-square"></i></a></li>
+								<li><a href="#" target="_blank"><i class="resumecon resumecon-twitter-square"></i></a></li>
+								<li><a href="#" target="_blank"><i class="resumecon resumecon-facebook-square"></i></a></li>
+								<li><a href="#" target="_blank"><i class="resumecon resumecon-github-square"></i></a></li>
 							</ul>
 						</div>
 					</header>
