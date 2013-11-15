@@ -104,7 +104,7 @@ function ba_resumepage_meta( array $meta_boxes ) {
                 array(
                 	'id' 	=> 'rp_work_desc',
                 	'name' 	=> 'What did you do here?',
-                	'type' 	=> 'text'
+                	'type' 	=> 'textarea'
                 ),
                 array(
                 	'id' 	=> 'rp_work_dates',
@@ -285,6 +285,12 @@ function ba_resumepage_meta( array $meta_boxes ) {
 			'default'		=> '#07A1CD'
 		),
 		array(
+			'id' 			=> 'rp_bg_color',
+			'name' 			=> 'Background Color',
+			'type' 			=> 'colorpicker',
+			'default'		=> '#FFFFFF'
+		),
+		array(
 			'id' 			=> 'rp_container_color',
 			'name' 			=> 'Container Color',
 			'type' 			=> 'colorpicker',
@@ -340,8 +346,7 @@ function ba_resumepage_meta( array $meta_boxes ) {
 				'type' 			=> 'select',
 				'default'		=> 'paper',
 				'options'		=> array(
-					'corporate'     => __('Corporate','showoff'),
-					'modern'     => __('Modern','showoff'),
+					'flat'     => __('Flat','showoff'),
 					'paper'     => __('Paper Stack','showoff'),
 				)
 			)

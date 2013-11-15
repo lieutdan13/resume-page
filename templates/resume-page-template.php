@@ -25,15 +25,18 @@ $companies 			= get_post_meta(get_the_ID(),'rp_work_places', false);
 
 $themeclass 		= get_post_meta(get_the_ID(),'rp_theme', true) ? get_post_meta(get_the_ID(),'rp_theme', true) : 'paper';
 
-
 $bg_image_id 		= get_post_thumbnail_id();
 $bg_image_url 		= wp_get_attachment_image_src($bg_image_id,'large', true);
-$bgimg 				= $bg_image_id ? sprintf('style="background:url(\'%s\') no-repeat center center fixed;background-size:cover;"',$bg_image_url[0]) : false;
+$bgimg 				= $bg_image_id ? sprintf('background:url(\'%s\') no-repeat center center fixed;background-size:cover;',$bg_image_url[0]) : false;
+
+$bgcolor			= get_post_meta(get_the_ID(),'rp_bg_color', true) ? get_post_meta(get_the_ID(),'rp_bg_color', true) : '#FFFFFF';
+
+$styles 			= $bgimg || $bgcolor ? sprintf('style="%sbackground-color:%s;"',$bgimg,$bgcolor) : false;
 
 do_action('ba_resume_page_before'); // action
 
 	?>
-		<section class="resume-wrap <?php echo $themeclass;?>" <?php echo $bgimg;?>>
+		<section class="resume-wrap <?php echo $themeclass;?>" <?php echo $styles;?>>
 			<div class="resume-container">
 				<div class="resume-inner">
 
