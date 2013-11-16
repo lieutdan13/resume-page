@@ -200,7 +200,7 @@ do_action('ba_resume_page_before'); // action
 								</div>
 								<div class="col-sm-9 github-stream-wrap">
 									<ul class="github-stream unstyled">
-										<?php echo ba_resume_page_github_feed( 'bearded-avenger', $excluded = array(), $count = 5, $include_css = true);?>
+										<?php echo ba_resume_page_github_feed( $github , $excluded = array(), $count = 5);?>
 									</ul>
 								</div>
 							</section>

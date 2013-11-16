@@ -105,6 +105,7 @@ ul {
         margin-bottom:3px;
     }
     .resume-bio-social {
+
         li {
             display: inline-block;
 
@@ -122,9 +123,18 @@ ul {
 
 //skillset
 .resume-skillset-list {
-    li i {
-        color: @brand-success;
-        margin-right:4px;
+    
+    .clearfix();
+    li {
+        width:50%;
+        display: inline-block;
+        vertical-align: top;
+        padding-right:15px;
+        .box-sizing(border-box);
+        i {
+            color: @brand-success;
+            margin-right:4px;
+        }
     }
 }
 
