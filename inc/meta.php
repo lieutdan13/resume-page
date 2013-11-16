@@ -15,8 +15,86 @@ function ba_resumepage_meta( array $meta_boxes ) {
 
 	$opts = array(
 		///////
+		////// BIO
+		//////
+		array(
+		    'id'   			=> 'rp_name',
+		    'name' 			=> __('Name', 'resume-page'),
+		    'type' 			=> 'text',
+		    'cols'			=> 6
+		),
+		array(
+		    'id'   			=> 'rp_tagline',
+		    'name' 			=> __('Tagline', 'resume-page'),
+		    'type' 			=> 'text',
+		    'cols'			=> 6
+		),
+		array(
+		    'id'   			=> 'rp_email',
+		    'name' 			=> __('Email', 'resume-page'),
+		    'type' 			=> 'text',
+		    'cols'			=> 4
+		),
+		array(
+		    'id'   			=> 'rp_website',
+		    'name' 			=> __('Website', 'resume-page'),
+		    'type' 			=> 'text',
+		    'cols'			=> 4
+		),
+		array(
+		    'id'   			=> 'rp_phone',
+		    'name' 			=> __('Phone', 'resume-page'),
+		    'type' 			=> 'text',
+		    'cols'			=> 4
+		),
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 12,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Description biotch ','resume-page')
+		),
+		///////
+		////// BIO SOCIAL
+		//////
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __('Bio Social', 'resume-page'),
+		    'type' 			=> 'title',
+		),
+		array(
+		    'id'   			=> 'rp_twitter',
+		    'name' 			=> __('Twitter Username', 'resume-page'),
+		    'type' 			=> 'text',
+		    'cols'			=> 4
+		),
+		array(
+		    'id'   			=> 'rp_facebook',
+		    'name' 			=> __('Facebook username', 'resume-page'),
+		    'type' 			=> 'text',
+		    'cols'			=> 4
+		),
+		array(
+		    'id'   			=> 'rp_github',
+		    'name' 			=> __('Github Username', 'resume-page'),
+		    'type' 			=> 'text',
+		    'cols'			=> 4
+		),
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __(' ', 'resume-page'),
+		    'type' 			=> 'title',
+		    'cols'			=> 12,
+			'desc'			=> __('<span class="ba-help-icon">?</span>Description biotch ','resume-page')
+		),
+		///////
 		////// OBJECTIVE
 		//////
+		array(
+		    'id'   			=> 'rp_help',
+		    'name' 			=> __('Objective Section', 'resume-page'),
+		    'type' 			=> 'title',
+		),
 		array(
 			'id' 			=> 'rp_disable_objective',
 			'name' 			=> 'Disable the Objective Section',
@@ -42,7 +120,7 @@ function ba_resumepage_meta( array $meta_boxes ) {
 			'type'           => 'textarea',
 			'cols'			=> 8,
 		),
-				array(
+		array(
 		    'id'   			=> 'rp_help',
 		    'name' 			=> __(' ', 'resume-page'),
 		    'type' 			=> 'title',

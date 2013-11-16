@@ -3,6 +3,16 @@
 wp_head();
 
 // setup variables - if you're overriding in a child template be sure to keep these here! only chnage the markup below and use these to fill in dynamic info
+$name 				= get_post_meta(get_the_ID(),'rp_name', true);
+$tagline 			= get_post_meta(get_the_ID(),'rp_tagline', true);
+$email 				= get_post_meta(get_the_ID(),'rp_email', true);
+$website 			= get_post_meta(get_the_ID(),'rp_website', true);
+$phone 				= get_post_meta(get_the_ID(),'rp_phone', true);
+
+$twitter 			= get_post_meta(get_the_ID(),'rp_twitter', true);
+$facebook			= get_post_meta(get_the_ID(),'rp_facebook', true);
+$github 			= get_post_meta(get_the_ID(),'rp_github', true);
+
 $hide_objective 	= get_post_meta(get_the_ID(),'rp_disable_objective', true);
 $hide_experience 	= get_post_meta(get_the_ID(),'rp_disable_experience', true);
 $hide_github 		= get_post_meta(get_the_ID(),'rp_disable_github', true);
@@ -46,21 +56,37 @@ do_action('ba_resume_page_before'); // action
 							<img src="http://placekitten.com/600/600" class="img-responsive">
 						</div>
 						<div class="col-sm-7 resume-bio">
-							<h1 class="zmt resume-bio-title">Unicorn Rider</h1>
-							<h2 class="zmt resume-bio-tag"><small>Crime Fighting Superstar</small></h2>
+							<h1 class="zmt resume-bio-title"><?php echo $name;?></h1>
+							<?php if ($tagline): ?>
+								<h2 class="zmt resume-bio-tag"><small><?php echo $tagline;?></small></h2>
+							<?php endif; ?>
 							<ul class="resume-bio-meta">
-								<li><a href="mailto:email@info.com" class="resume-bio-email"><i class="resumecon resumecon-envelope"></i> email@info.com</a></li>
-								<li><a href="http://website.com" target="_blank" class="resume-bio-site"><i class="resumecon resumecon-globe"></i> http://website.com</a></li>
-								<li><i class="resumecon resumecon-phone-square"></i> 555-555-5555</li>
+								<?php if ($email): ?>
+									<li><a href="mailto:<?php echo $email;?>" class="resume-bio-email"><i class="resumecon resumecon-envelope"></i> <?php echo $email;?></a></li>
+								<?php endif;
+								if ($website): ?>
+									<li><a href="<?php echo $website;?>" target="_blank" class="resume-bio-site"><i class="resumecon resumecon-globe"></i> <?php echo $website;?></a></li>
+								<?php endif;
+								if ($phone): ?>
+									<li><i class="resumecon resumecon-phone-square"></i> <?php echo $phone;?></li>
+								<?php endif; ?>
 							</ul>
 						</div>
-						<div class="col-sm-2 resume-social-wrap tar">
-							<ul class="resume-bio-social unstyled">
-								<li><a href="#" target="_blank"><i class="resumecon resumecon-twitter-square"></i></a></li>
-								<li><a href="#" target="_blank"><i class="resumecon resumecon-facebook-square"></i></a></li>
-								<li><a href="#" target="_blank"><i class="resumecon resumecon-github-square"></i></a></li>
-							</ul>
-						</div>
+						<?php if ($twitter || $facebook || $github): ?>
+							<div class="col-sm-2 resume-social-wrap tar">
+								<ul class="resume-bio-social unstyled">
+									<?php if ($twitter): ?>
+										<li><a href="http://twitter.com/<?php echo $twitter;?>" target="_blank"><i class="resumecon resumecon-twitter-square"></i></a></li>
+									<?php endif;
+									if ($facebook): ?>
+										<li><a href="http://facebook.com/<?php echo $facebook;?>" target="_blank"><i class="resumecon resumecon-facebook-square"></i></a></li>
+									<?php endif;
+									if ($github): ?>
+										<li><a href="http://github.com/<?php echo $github;?>" target="_blank"><i class="resumecon resumecon-github-square"></i></a></li>
+									<?php endif; ?>
+								</ul>
+							</div>
+						<?php endif ;?>
 					</header>
 					<!-- end resume header -->
 
