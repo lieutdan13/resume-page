@@ -153,7 +153,7 @@ do_action('ba_resume_page_before'); // action
 										<div class="row resume-education-item">
 											<div class="col-sm-12">
 												<h4 class="zmt resume-education-title"><?php echo $school['rp_school_name'];?></h4>
-												<h4 class="resume-education-tag"><small><?php echo $school['rp_school_course'];?></small></h4>
+												<h4 class="zmt resume-education-tag"><small><?php echo $school['rp_school_course'];?></small></h4>
 												<p><?php echo $school['rp_school_desc'];?></p>
 											</div>
 										</div>

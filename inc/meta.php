@@ -313,7 +313,12 @@ function ba_resumepage_meta( array $meta_boxes ) {
 				'0.9'		=> '0.9',
 				'1.0'		=> '1.0'
 			)
-		)
+		),
+        array(
+        	'id' 	=> 'rp_custom_code',
+        	'name' 	=> 'Custom CSS',
+        	'type' 	=> 'textarea_code'
+        ),
 	);
 
 	$meta_boxes[] = array(
