@@ -28,7 +28,7 @@ class ba_resume_page_run_and_cleans {
 
 		$txtcolor 				= get_post_meta(get_the_ID(),'rp_txt_color', true) ? get_post_meta(get_the_ID(),'rp_txt_color', true) : '#333333';
 		$link_color				= get_post_meta(get_the_ID(),'rp_accent_color', true) ? get_post_meta(get_the_ID(),'rp_accent_color', true) : '#07A1CD';
-		$container_opacity 		= get_post_meta(get_the_ID(), 'rp_container_opacity', true) ? get_post_meta(get_the_ID(), 'rp_container_opacity', true) : '0.7';
+		$container_opacity 		= get_post_meta(get_the_ID(), 'rp_container_opacity', true) ? get_post_meta(get_the_ID(), 'rp_container_opacity', true) : '1.0';
 
 		$get_container_color 	= get_post_meta(get_the_ID(),'rp_container_color', true) ? get_post_meta(get_the_ID(),'rp_container_color', true) : '#FFFFFF';
 		$container_to_rgba 		= $get_container_color ? $this->hex2rgb($get_container_color) : false;
