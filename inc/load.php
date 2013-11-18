@@ -22,6 +22,7 @@ class ba_resume_page_run_and_cleans {
 		add_action('wp_head', array($this,'user_styles'), 2);
 	}
 
+	// set user set styles and custom css in head
 	function user_styles(){
 
 		$resume 				= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
@@ -51,6 +52,7 @@ class ba_resume_page_run_and_cleans {
 		endif;
 	}
 
+	// load script instantations for the portfolio area
 	function script_init(){
 
 		$hide_portfolio 		= get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
@@ -89,6 +91,7 @@ class ba_resume_page_run_and_cleans {
 		<?php endif;
 	}
 
+	// remove unncessary kruft from wphead when on resume page and resume page is activated
 	function clean_head(){
 
 		$resume = get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
@@ -113,12 +116,12 @@ class ba_resume_page_run_and_cleans {
 
 	}
 
+	// load our scripts and stuff on demand
 	function run_clean(){
 
 		$resume 		= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
 		$lightbox 		= get_post_meta(get_the_ID(),'rp_do_lightbox', true);
 		$hide_portfolio = get_post_meta(get_the_ID(),'rp_disable_portfolio', true);
-
 
 	    if ( $resume ) {
 
@@ -141,6 +144,7 @@ class ba_resume_page_run_and_cleans {
 
 	}
 
+	// helper functioun for convering hex to rgba
     function hex2rgb( $colour ) {
         if ( $colour[0] == '#' ) {
                 $colour = substr( $colour, 1 );

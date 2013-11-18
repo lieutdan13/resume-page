@@ -382,7 +382,7 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		),
 		array(
 			'id'			=> 'rp_bg_img',
-			'name'			=> __('Background Image', 'resume-page'),
+			'name'			=> __('Full Screen Background Image', 'resume-page'),
 			'type'			=> 'image',
 			'cols'			=> 6
 		),

@@ -5,7 +5,7 @@ Author URI: http://nickhaskins.co
 Plugin Name: Resume Page
 Plugin URI: http://nickhaskins.co
 Version: 1.0
-Description: Turn any page into a Resume page.
+Description: Turns any Wordpress page into a beautiful Resume Page with built in Gihub activity and integrated lightbox portfolio.
 */
 
 class ba_Resume_Page_Pimpin {
@@ -33,6 +33,7 @@ class ba_Resume_Page_Pimpin {
 		load_plugin_textdomain( 'resumepage_translation', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 	}
 
+	// let a themer override our template if put into a child theme
 	public function template_loader($template) {
 
 		$resume = get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
