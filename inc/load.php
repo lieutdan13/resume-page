@@ -39,29 +39,15 @@ class ba_resume_page_run_and_cleans {
 		if ( ($resume) && ($txtcolor || $get_container_color || $link_color)): ?>
 		<!-- Resume Page - User Set Styles -->
 		<style>
-		.resume-wrap a i,
-		.resume-wrap {
-			color:<?php echo $txtcolor;?>;
-		}
-		.resume-inner {
-			<?php echo $final_container_color;?>;
-		}
-		.label-resume {
-			background:<?php echo $link_color;?>;
-		}
-		.resume-bio-social a:hover i,
-		.resume-wrap a {
-			color:<?php echo $link_color;?>;
-		}
+		.resume-wrap a i,.resume-wrap {color:<?php echo $txtcolor;?>;}
+		.resume-inner {<?php echo $final_container_color;?>;}
+		.label-resume {background:<?php echo $link_color;?>;}
+		.resume-bio-social a:hover i,.resume-wrap a {color:<?php echo $link_color;?>;}
 		</style>
 		<?php endif;
 
-		if ($customcss):
-			?>
-			<style>
-			<?php echo $customcss;?>
-			</style>
-			<?php
+		if ( $resume && $customcss ):
+			?><!-- Resume Page - User Custom CSS --><style><?php echo $customcss;?></style><?php
 		endif;
 	}
 
