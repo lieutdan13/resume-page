@@ -26,6 +26,7 @@ class ba_resume_page_run_and_cleans {
 
 		$resume 				= get_post_meta(get_the_ID(),'ba_make_resume_page', true) ? get_post_meta(get_the_ID(),'ba_make_resume_page', true) : false;
 
+		$customcss 				= get_post_meta(get_the_ID(), 'rp_custom_css', true) ? get_post_meta(get_the_ID(), 'rp_custom_css', true) : false;
 		$txtcolor 				= get_post_meta(get_the_ID(),'rp_txt_color', true) ? get_post_meta(get_the_ID(),'rp_txt_color', true) : '#333333';
 		$link_color				= get_post_meta(get_the_ID(),'rp_accent_color', true) ? get_post_meta(get_the_ID(),'rp_accent_color', true) : '#07A1CD';
 		$container_opacity 		= get_post_meta(get_the_ID(), 'rp_container_opacity', true) ? get_post_meta(get_the_ID(), 'rp_container_opacity', true) : '1.0';
@@ -54,6 +55,14 @@ class ba_resume_page_run_and_cleans {
 		}
 		</style>
 		<?php endif;
+
+		if ($customcss):
+			?>
+			<style>
+			<?php echo $customcss;?>
+			</style>
+			<?php
+		endif;
 	}
 
 	function script_init(){

@@ -3,6 +3,7 @@
 wp_head();
 
 // setup variables - if you're overriding in a child template be sure to keep these here! only chnage the markup below and use these to fill in dynamic info
+
 $name 				= get_post_meta(get_the_ID(),'rp_name', true);
 $tagline 			= get_post_meta(get_the_ID(),'rp_tagline', true);
 $email 				= get_post_meta(get_the_ID(),'rp_email', true);
@@ -50,6 +51,8 @@ do_action('ba_resume_page_before'); // action
 			<div class="resume-container">
 				<div class="resume-inner">
 
+					<?php do_action('ba_resume_page_inside_top_container'); //action ?>
+
 					<!-- start resume header -->
 					<header class="row resume-section-header">
 						<div class="col-sm-3">
@@ -90,6 +93,8 @@ do_action('ba_resume_page_before'); // action
 					</header>
 					<!-- end resume header -->
 
+					<?php do_action('ba_resume_page_after_header'); //action ?>
+
 					<!-- start main -->
 					<main class="resume-section-main">
 
@@ -106,6 +111,8 @@ do_action('ba_resume_page_before'); // action
 							<hr />
 							<!-- end objective -->
 						<?php }
+
+						do_action('ba_resume_page_after_objective'); //action
 
 
 						if (!$hide_experience) { ?>
@@ -137,6 +144,7 @@ do_action('ba_resume_page_before'); // action
 							<!-- end work experience wrap -->
 						<?php }
 
+						do_action('ba_resume_page_after_experience'); //action
 
 						if (!$hide_skills) { ?>
 							<!-- start skillset wrap -->
@@ -165,6 +173,7 @@ do_action('ba_resume_page_before'); // action
 							<!-- end skillset wrap -->
 						<?php }
 
+						do_action('ba_resume_page_after_skillset'); //action
 
 						if (!$hide_education) { ?>
 							<!-- start education wrap -->
@@ -192,6 +201,8 @@ do_action('ba_resume_page_before'); // action
 							<!-- end education wrap -->
 						<?php }
 
+						do_action('ba_resume_page_after_education'); //action
+
 						if (!$hide_github) { ?>
 							<!-- start github activity stream -->
 							<section class="row resume-github-wrap no-print">
@@ -208,6 +219,8 @@ do_action('ba_resume_page_before'); // action
 							<!-- end github activity stream -->
 						<?php }
 
+						do_action('ba_resume_page_after_github'); //action
+
 						if (!$hide_portfolio) { ?>
 							<!-- start portfolio -->
 							<section class="row resume-portfolio-wrap no-print">
@@ -223,7 +236,7 @@ do_action('ba_resume_page_before'); // action
 
 					</main>
 					<!-- end main -->
-
+					<?php do_action('ba_resume_page_inside_bottom_container'); //action ?>
 
 				</div>
 			</div>
