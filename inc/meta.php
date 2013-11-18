@@ -363,6 +363,11 @@ function ba_resumepage_meta( array $meta_boxes ) {
 			'default'		=> '#07A1CD'
 		),
 		array(
+			'id'			=> 'rp_bg_img',
+			'name'			=> __('Background Image', 'resume-page'),
+			'type'			=> 'image'
+		),
+		array(
 			'id' 			=> 'rp_bg_color',
 			'name' 			=> 'Background Color',
 			'type' 			=> 'colorpicker',

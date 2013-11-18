@@ -35,9 +35,9 @@ $companies 			= get_post_meta(get_the_ID(),'rp_work_places', false);
 
 $themeclass 		= get_post_meta(get_the_ID(),'rp_theme', true) ? get_post_meta(get_the_ID(),'rp_theme', true) : 'paper';
 
-$bg_image_id 		= get_post_thumbnail_id();
-$bg_image_url 		= wp_get_attachment_image_src($bg_image_id,'large', true);
-$bgimg 				= $bg_image_id ? sprintf('background:url(\'%s\') no-repeat center center fixed;background-size:cover;',$bg_image_url[0]) : false;
+$getbgimgid 		= get_post_meta(get_the_ID(),'rp_bg_img', true);
+$getbgimg 			= $getbgimgid ? wp_get_attachment_url( $getbgimgid ) : false;
+$bgimg 				= $getbgimgid ? sprintf('background:url(\'%s\');',$getbgimg) : false;
 
 $bgcolor			= get_post_meta(get_the_ID(),'rp_bg_color', true) ? get_post_meta(get_the_ID(),'rp_bg_color', true) : '#FFFFFF';
 
@@ -53,7 +53,7 @@ do_action('ba_resume_page_before'); // action
 					<!-- start resume header -->
 					<header class="row resume-section-header">
 						<div class="col-sm-3">
-							<img src="http://placekitten.com/600/600" class="img-responsive">
+							<?php the_post_thumbnail(array(400,400), array('class'=>'resume-avatar'));?>
 						</div>
 						<div class="col-sm-7 resume-bio">
 							<h1 class="zmt resume-bio-title"><?php echo $name;?></h1>
