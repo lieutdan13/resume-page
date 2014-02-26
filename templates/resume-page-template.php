@@ -13,6 +13,7 @@ $phone 				= get_post_meta(get_the_ID(),'rp_phone', true);
 $twitter 			= get_post_meta(get_the_ID(),'rp_twitter', true);
 $facebook			= get_post_meta(get_the_ID(),'rp_facebook', true);
 $github 			= get_post_meta(get_the_ID(),'rp_github', true);
+$linkedin 			= get_post_meta(get_the_ID(),'rp_linkedin', true);
 
 $hide_objective 	= get_post_meta(get_the_ID(),'rp_disable_objective', true);
 $hide_experience 	= get_post_meta(get_the_ID(),'rp_disable_experience', true);
@@ -75,7 +76,7 @@ do_action('ba_resume_page_before'); // action
 								<?php endif; ?>
 							</ul>
 						</div>
-						<?php if ($twitter || $facebook || $github): ?>
+						<?php if ($twitter || $facebook || $github || $linkedin): ?>
 							<div class="col-sm-2 resume-social-wrap tar">
 								<ul class="resume-bio-social unstyled">
 									<?php if ($twitter): ?>
@@ -86,6 +87,9 @@ do_action('ba_resume_page_before'); // action
 									<?php endif;
 									if ($github): ?>
 										<li><a href="http://github.com/<?php echo $github;?>" target="_blank"><i class="resumecon resumecon-github-square"></i></a></li>
+									<?php endif;
+									if ($linkedin): ?>
+										<li><a href="http://linkedin.com/in/<?php echo $linkedin;?>" target="_blank"><i class="resumecon resumecon-linkedin-square"></i></a></li>
 									<?php endif; ?>
 								</ul>
 							</div>

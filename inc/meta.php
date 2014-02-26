@@ -82,6 +82,12 @@ function ba_resumepage_meta( array $meta_boxes ) {
 		    'cols'			=> 4
 		),
 		array(
+		    'id'   			=> 'rp_linkedin',
+		    'name' 			=> __('LinkedIn Username', 'resume-page'),
+		    'type' 			=> 'text',
+		    'cols'			=> 4
+		),
+		array(
 		    'id'   			=> 'rp_help',
 		    'name' 			=> __(' ', 'resume-page'),
 		    'type' 			=> 'title',
